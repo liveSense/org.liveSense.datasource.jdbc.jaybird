@@ -3,22 +3,20 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-  <parent>
+  	<parent>
       <groupId>org.liveSense</groupId>
       <artifactId>org.liveSense.parent</artifactId>
       <version>1-SNAPSHOT</version>
-  </parent>
+  	</parent>
   
     <artifactId>org.liveSense.datasource.jdbc.jaybird</artifactId>
-    <version>2.1.6</version>
+    <version>1.0.0-2.1.6-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <name>liveSense Jaybird JDBC driver for DataSourceProvider</name>
     <description>
 		This  bundle contains the Jaybird JDBC driver
     </description>
-
-
 <repositories>
 </repositories>        
     <build>
@@ -29,38 +27,42 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-	    <Bundle-Category>
+	    				<Bundle-Category>
                         	Libra,System
                         </Bundle-Category>
                         <Fragment-Host>
                             org.liveSense.service.dataSourceProvider
                         </Fragment-Host>
-	  <Import-Package>
-		!*
-	</Import-Package>
-
+						<Import-Package>
+							!*
+						</Import-Package>
                         <Export-Package>
                             !*
                         </Export-Package>
-	<Embed-Dependency>
-		jaybird
-	</Embed-Dependency>
+						<Embed-Dependency>
+							jaybird;inline=true, javaee-api
+						</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 <dependencies>
-<dependency>
-    <groupId>org.firebirdsql.jdbc</groupId>
-    <artifactId>jaybird</artifactId>
-    <version>2.1.6</version>
-    <exclusions>
-    	<exclusion>
-    		<groupId>javax.jms</groupId>
-    		<artifactId>jms</artifactId>
-    	</exclusion>
-    </exclusions>
-</dependency>
+	<dependency>
+	    <groupId>org.firebirdsql.jdbc</groupId>
+	    <artifactId>jaybird</artifactId>
+	    <version>2.1.6</version>
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>javax.jms</groupId>
+	    		<artifactId>jms</artifactId>
+	    	</exclusion>
+	    </exclusions>
+	</dependency>
+	<dependency>
+	   <groupId>org.apache.openejb</groupId>
+	   <artifactId>javaee-api</artifactId>
+	   <version>5.0-3</version>
+	</dependency>
 </dependencies>
 </project>
